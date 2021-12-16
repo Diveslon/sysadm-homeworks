@@ -33,20 +33,20 @@
 
 	```
 Убираем необоснованный выход из цикла break и добавляем в вывод метода os.getcwd, который поможет записать полный путь.
-
-	```python
-		#!/usr/bin/env python3
-		
-		import os
-		
-		bash_command = ["cd ~/netology/sysadm-homeworks", "git status"]
-		result_os = os.popen(' && '.join(bash_command)).read()
-		is_change = False
-		for result in result_os.split('\n'):
-    		if result.find('modified') != -1:
-        		prepare_result = os.getcwd() + result.replace('\tmodified:   ', '')
-        		print(prepare_result)
-	```
+	
+```python
+	#!/usr/bin/env python3
+	
+	import os
+	
+	bash_command = ["cd ~/netology/sysadm-homeworks", "git status"]
+	result_os = os.popen(' && '.join(bash_command)).read()
+	is_change = False
+	for result in result_os.split('\n'):
+    	if result.find('modified') != -1:
+        	prepare_result = os.getcwd() + result.replace('\tmodified:   ', '')
+        	print(prepare_result)
+```
 
 2. Доработать скрипт выше так, чтобы он мог проверять не только локальный репозиторий в текущей директории, а также умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
 
